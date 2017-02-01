@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>TP2 - AJAX</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+<body>
+ <div class="loginContainer">
+    <div class="block">
+        <h3 class="blockTitle">Login</h3>
+        <div class="blockContent">
+            <div class="formStyle">
+                <script>
+                    $(document).ready(function(){
+                        $('#login').click(function()
+                        {   
+                            var user=$('#userid').val();
+                            var pwd=$('#pswrd').val();
+                            $.ajax({
+                                type: "POST",
+                                url:"LoginServlet",   // this is my servlet
+                                data:{"user":user,"password":pwd},
+                                success: function (data) {
+                                     // I want to call my home page from here 
+                                }
+                            });                                
+                        });
+                    });
+                </script>
+                <label>Username</label>
+                <input type="text" id="userid"/>
+                <small>(e.g. guest)</small>
+
+                <label>Password</label>
+                <input type="password" id="pswrd"/> 
+                <input type="submit" value="Login" id="login"/>
+            </div>
+        </div>
+    </div>
+ </div>
+</body>
+</html>
